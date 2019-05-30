@@ -1,4 +1,4 @@
-# Currently updating report to be posted. 
+# \*Currently updating report to be posted. 
 
 # Sports Analytics Challenge
 * [2019 Analytics challenge](https://www.agorize.com/en/challenges/xpsg) organized by **Paris Saint-Germain** and **École Polytechnique**
