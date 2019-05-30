@@ -1,9 +1,3 @@
----
-output:
-  word_document: default
-  pdf_document: default
-  html_document: default
----
 # Sports Analytics Challenge
 * [2019 Analytics challenge](https://www.agorize.com/en/challenges/xpsg) organized by **Paris Saint-Germain** and **École Polytechnique**
 * Data set based on French Football league matches. (Opta F24 files)
