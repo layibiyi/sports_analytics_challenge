@@ -1,6 +1,11 @@
+---
+output:
+  word_document: default
+  pdf_document: default
+  html_document: default
+---
 # Sports Analytics Challenge
-* https://www.agorize.com/en/challenges/xpsg
-* 2019 Analytics challenge organized by **Paris Saint-Germain** and **École Polytechnique**
+* [2019 Analytics challenge](https://www.agorize.com/en/challenges/xpsg) organized by **Paris Saint-Germain** and **École Polytechnique**
 * Data set based on French Football league matches. (Opta F24 files)
 * Prizes: $100,000 funding, Top 5, Top 11, Top 50 prizes. 
 * Summary of challenge problem, deliverables, approach and result given below
