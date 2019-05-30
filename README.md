@@ -1,8 +1,3 @@
----
-output:
-  html_document: default
-  pdf_document: default
----
 # Sports Analytics Challenge
 * https://www.agorize.com/en/challenges/xpsg
 * 2019 Analytics challenge organized by **Paris Saint-Germain** and **École Polytechnique**
