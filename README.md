@@ -7,7 +7,7 @@
 * Summary of challenge problem, deliverables, approach and result given below
 
 ### Data
-A learning database consisting of the F24 Opta files accurately describing all the ball events in all the games of the first part of the Ligue 1 season, 2016-2017.
+A learning database consisting of the F24 Opta files accurately describing all the ball events for all the games of the first part of the Ligue 1 season, 2016-2017.
 
 ### Task
 Train an algorithm (Python or R) on the first part of the season that will be tested on the second part of the season. 15 minutes of a game will be randomly selected in the second half of the season. The algorithm will have to return the identity of a player who has performed certain actions as well as predictions about the next event to take place on that game. 
