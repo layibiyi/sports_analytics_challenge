@@ -1,4 +1,4 @@
-### \*Currently working on R-based report of the original submission
+### \*Currently working on Python-based report of the original submission
 
 ## Sports Analytics Challenge Summary
 * [2019 Analytics challenge](https://www.agorize.com/en/challenges/xpsg) organized by **Paris Saint-Germain** and **École Polytechnique**
@@ -14,7 +14,7 @@
 * **Results**: [Top 11 selection](https://www.agorize.com/en/challenges/xpsg/pages/finale) out of over 3000 submissions. Round 2 interview with analysts from Paris Saint-Germain and École Polytechnique. Finished [8th](https://www.agorize.com/en/challenges/xpsg/pages/finale) and received Paris Saint-Germain merchandise
 
 * **Files uploaded or planned**: 
-  - 1st report about original submission (R and Python versions).
+  - 1st report about original submission ([R](https://layibiyi.github.io/sports_analytics_challenge/challenge_R_report.html) and Python versions).
   - 2nd report detailing alternate approaches and improvements to original submission (R and Python versions).
   - [main_psgx.R](https://github.com/layibiyi/sports_analytics_challenge/blob/master/main_psgx.R) contains final code submitted. This file loads trained models and includes function that outputs challenge deliverables in a csv file.
     
