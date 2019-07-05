@@ -269,27 +269,11 @@ parsed<- xmlInternalTreeParse("sample_game.xml")
 Events_attrs <- obtain(parsed, "Event")
 ```
 
-    ##           id event_id type_id period_id min sec team_id outcome    x    y
-    ## 1 1195160021        1      34        16   0   0     143       1  0.0  0.0
-    ## 2 2066606636        1      34        16   0   0     148       1  0.0  0.0
-    ## 3  931188097        2      32         1   0   0     143       1  0.0  0.0
-    ## 4  704339764        2      32         1   0   0     148       1  0.0  0.0
-    ## 5 1399491333        3       1         1   0   1     148       1 50.2 49.3
-    ## 6 1036759776        4       1         1   0   5     148       0 35.3 59.4
-    ##                 timestamp       last_modified       version player_id
-    ## 1 2016-08-14T13:08:34.349 2016-08-14T13:59:59 1471179598746      <NA>
-    ## 2 2016-08-14T13:08:35.580 2016-08-14T15:03:52 1471183432594      <NA>
-    ## 3 2016-08-14T14:00:25.556 2016-08-14T14:00:26 1471179625559      <NA>
-    ## 4 2016-08-14T14:00:25.556 2016-08-14T14:00:27 1471179626429      <NA>
-    ## 5  2016-08-14T14:00:27.88 2016-08-14T14:00:30 1471179630648     51327
-    ## 6 2016-08-14T14:00:30.639 2016-08-14T14:00:34 1471179634183    171101
-    ##   keypass assist
-    ## 1    <NA>   <NA>
-    ## 2    <NA>   <NA>
-    ## 3    <NA>   <NA>
-    ## 4    <NA>   <NA>
-    ## 5    <NA>   <NA>
-    ## 6    <NA>   <NA>
+| id         | event\_id | type\_id | period\_id | min | sec | team\_id | outcome | x   | y   | timestamp               | last\_modified      | version       | player\_id | keypass | assist |
+| :--------- | :-------- | :------- | :--------- | :-- | :-- | :------- | :------ | :-- | :-- | :---------------------- | :------------------ | :------------ | :--------- | :------ | :----- |
+| 1195160021 | 1         | 34       | 16         | 0   | 0   | 143      | 1       | 0.0 | 0.0 | 2016-08-14T13:08:34.349 | 2016-08-14T13:59:59 | 1471179598746 | NA         | NA      | NA     |
+| 2066606636 | 1         | 34       | 16         | 0   | 0   | 148      | 1       | 0.0 | 0.0 | 2016-08-14T13:08:35.580 | 2016-08-14T15:03:52 | 1471183432594 | NA         | NA      | NA     |
+| 931188097  | 2         | 32       | 1          | 0   | 0   | 143      | 1       | 0.0 | 0.0 | 2016-08-14T14:00:25.556 | 2016-08-14T14:00:26 | 1471179625559 | NA         | NA      | NA     |
 
 While the event node is important, information about the game in which
 the event occurred and qualifiers further describing the event might be
@@ -310,132 +294,11 @@ Qualifiers <- cast(Qualifiers, event_id+team_id~ qualifier_id,fun.aggregate = ma
 Events <- merge(Events_attrs, Qualifiers, all.x=T, suffixes=c("Q"))
 ```
 
-    ##   event_id team_id         id type_id period_id min sec outcome    x    y
-    ## 1        1     143 1195160021      34        16   0   0       1  0.0  0.0
-    ## 2        1     148 2066606636      34        16   0   0       1  0.0  0.0
-    ## 3       10     143  739276166       1         1   0  37       1 33.0 18.9
-    ## 4       10     148 1172684026       3         1   0  36       0 51.9 92.3
-    ## 5      100     143   34903332      43         1   7  33       1  0.0  0.0
-    ## 6      100     148  625142903      43         1  11   6       1  0.0  0.0
-    ##                 timestamp       last_modified       version player_id
-    ## 1 2016-08-14T13:08:34.349 2016-08-14T13:59:59 1471179598746      <NA>
-    ## 2 2016-08-14T13:08:35.580 2016-08-14T15:03:52 1471183432594      <NA>
-    ## 3 2016-08-14T14:01:03.191 2016-08-14T14:01:05 1471179664743     44488
-    ## 4 2016-08-14T14:01:01.556 2016-08-14T14:01:06 1471179666122     43024
-    ## 5  2016-08-14T14:07:59.87 2016-08-14T14:33:04          <NA>     37832
-    ## 6 2016-08-14T14:11:31.891 2016-08-14T14:12:04          <NA>    170034
-    ##   keypass assist    1   10  102  103  107  108  120  123  124  127   13
-    ## 1    <NA>   <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 2    <NA>   <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 3    <NA>   <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 4    <NA>   <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 5    <NA>   <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 6    <NA>   <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ##    130                                                    131   14  140
-    ## 1    4 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 0, 0, 0, 0, 0, 0, 0 <NA> <NA>
-    ## 2    4 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 0, 0, 0, 0, 0, 0, 0 <NA> <NA>
-    ## 3 <NA>                                                   <NA> <NA> 43.1
-    ## 4 <NA>                                                   <NA> <NA> <NA>
-    ## 5 <NA>                                                   <NA> <NA> <NA>
-    ## 6 <NA>                                                   <NA> <NA> <NA>
-    ##    141  144  145  146  147   15  152  153  154  155  156  157  167  168
-    ## 1 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 2 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 3 20.0 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 4 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 5 <NA>    5 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 6 <NA>   39 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ##     17  170  173  174  177  179   18  181  182  183  185  189   19    194
-    ## 1 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>  59963
-    ## 2 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> 171101
-    ## 3 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>   <NA>
-    ## 4 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>   <NA>
-    ## 5 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>   <NA>
-    ## 6    0 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>   <NA>
-    ##    195  196  197  198  199    2   20  201  209  210  211  212  213  214
-    ## 1 <NA> <NA>  645 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 2 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 3 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> 10.6  0.1 <NA>
-    ## 4 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 5 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 6 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ##    215  216  217  218   22  223  224
-    ## 1 <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 2 <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 3 <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 4 <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 5 <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 6 <NA> <NA> <NA> <NA>    0 <NA> <NA>
-    ##                                                    227  229  230  231  232
-    ## 1 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 <NA> <NA> <NA> <NA>
-    ## 2 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 <NA> <NA> <NA> <NA>
-    ## 3                                                 <NA> <NA> <NA> <NA> <NA>
-    ## 4                                                 <NA> <NA> <NA> <NA> <NA>
-    ## 5                                                 <NA> <NA> <NA> <NA> <NA>
-    ## 6                                                 <NA> <NA> <NA> <NA> <NA>
-    ##    233  236  237  238   24  241  246   25   26  264  265  277  279  285
-    ## 1 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 2 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 3 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 4 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 5 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 6 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ##    286  287   29  292  293  294  295    3
-    ## 1 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 2 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 3 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 4 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 5 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 6 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ##                                                                                                                                    30
-    ## 1 59957, 54772, 37832, 59963, 44488, 52775, 169007, 168568, 59966, 166552, 149519, 220560, 173211, 55305, 107641, 37852, 59956, 71389
-    ## 2  38816, 80799, 43024, 9980, 170034, 171101, 210460, 214472, 51327, 38008, 97290, 63600, 152337, 209874, 44314, 214473, 93498, 54911
-    ## 3                                                                                                                                <NA>
-    ## 4                                                                                                                                <NA>
-    ## 5                                                                                                                                <NA>
-    ## 6                                                                                                                                <NA>
-    ##    302   31  314    4   41   42
-    ## 1 <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 2 <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 3 <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 4 <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 5 <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 6 <NA> <NA> <NA> <NA> <NA> <NA>
-    ##                                                     44    5   53   55
-    ## 1 1, 2, 2, 3, 2, 2, 3, 3, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5 <NA> <NA> <NA>
-    ## 2 1, 2, 2, 3, 2, 2, 3, 3, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5 <NA> <NA> <NA>
-    ## 3                                                 <NA> <NA> <NA> <NA>
-    ## 4                                                 <NA> <NA> <NA> <NA>
-    ## 5                                                 <NA> <NA> <NA> <NA>
-    ## 6                                                 <NA> <NA> <NA> <NA>
-    ##       56   57
-    ## 1   <NA> <NA>
-    ## 2   <NA> <NA>
-    ## 3   Back <NA>
-    ## 4   Left <NA>
-    ## 5   Back <NA>
-    ## 6 Center <NA>
-    ##                                                                 59    6
-    ## 1 1, 20, 15, 21, 2, 3, 14, 8, 10, 18, 27, 22, 4, 7, 12, 28, 30, 31 <NA>
-    ## 2   16, 14, 26, 25, 4, 2, 13, 6, 9, 7, 23, 1, 3, 8, 12, 17, 19, 28 <NA>
-    ## 3                                                             <NA> <NA>
-    ## 4                                                             <NA> <NA>
-    ## 5                                                             <NA> <NA>
-    ## 6                                                             <NA> <NA>
-    ##     63   64    7   72   73   74   75   76   77   78    8   80   81   82
-    ## 1 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 2 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 3 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 4 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 5 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ## 6 <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-    ##     83   88   89   94
-    ## 1 <NA> <NA> <NA> <NA>
-    ## 2 <NA> <NA> <NA> <NA>
-    ## 3 <NA> <NA> <NA> <NA>
-    ## 4 <NA> <NA> <NA> <NA>
-    ## 5 <NA> <NA> <NA> <NA>
-    ## 6 <NA> <NA> <NA> <NA>
+|    | event\_id | team\_id | id         | type\_id | period\_id | min | sec | outcome | x    | y    | timestamp               | last\_modified      | version       | player\_id | keypass | assist | 1  | 10 | 102 | 103 | 107 | 108 | 120 | 123 | 124 | 127 | 13 | 130 | 131 | 14 | 140  | 141  | 144 | 145 | 146 | 147 | 15 | 152 | 153 | 154 | 155 | 156 | 157 | 167 | 168 | 17 | 170 | 173 | 174 | 177 | 179 | 18 | 181 | 182 | 183 | 185 | 189 | 19 | 194 | 195 | 196 | 197 | 198 | 199 | 2  | 20 | 201 | 209 | 210 | 211 | 212  | 213 | 214 | 215 | 216 | 217 | 218 | 22 | 223 | 224 | 227 | 229 | 230 | 231 | 232 | 233 | 236 | 237 | 238 | 24 | 241 | 246 | 25 | 26 | 264 | 265 | 277 | 279 | 285 | 286 | 287 | 29 | 292 | 293 | 294 | 295 | 3  | 30 | 302 | 31 | 314 | 4  | 41 | 42 | 44 | 5  | 53 | 55 | 56   | 57 | 59 | 6  | 63 | 64 | 7  | 72 | 73 | 74 | 75 | 76 | 77 | 78 | 8  | 80 | 81 | 82 | 83 | 88 | 89 | 94 |
+| -- | :-------- | :------- | :--------- | :------- | :--------- | :-- | :-- | :------ | :--- | :--- | :---------------------- | :------------------ | :------------ | :--------- | :------ | :----- | :- | :- | :-- | :-- | :-- | :-- | :-- | :-- | :-- | :-- | :- | :-- | :-- | :- | :--- | :--- | :-- | :-- | :-- | :-- | :- | :-- | :-- | :-- | :-- | :-- | :-- | :-- | :-- | :- | :-- | :-- | :-- | :-- | :-- | :- | :-- | :-- | :-- | :-- | :-- | :- | :-- | :-- | :-- | :-- | :-- | :-- | :- | :- | :-- | :-- | :-- | :-- | :--- | :-- | :-- | :-- | :-- | :-- | :-- | :- | :-- | :-- | :-- | :-- | :-- | :-- | :-- | :-- | :-- | :-- | :-- | :- | :-- | :-- | :- | :- | :-- | :-- | :-- | :-- | :-- | :-- | :-- | :- | :-- | :-- | :-- | :-- | :- | :- | :-- | :- | :-- | :- | :- | :- | :- | :- | :- | :- | :--- | :- | :- | :- | :- | :- | :- | :- | :- | :- | :- | :- | :- | :- | :- | :- | :- | :- | :- | :- | :- | :- |
+| 18 | 106       | 148      | 2119265797 | 1        | 1          | 11  | 51  | 1       | 34.2 | 67.0 | 2016-08-14T14:12:16.734 | 2016-08-14T14:12:17 | 1471180337504 | 171101     | NA      | NA     | NA | NA | NA  | NA  | NA  | NA  | NA  | NA  | NA  | NA  | NA | NA  | NA  | NA | 38.6 | 58.5 | NA  | NA  | NA  | NA  | NA | NA  | NA  | NA  | NA  | NA  | NA  | NA  | NA  | NA | NA  | NA  | NA  | NA  | NA  | NA | NA  | NA  | NA  | NA  | NA  | NA | NA  | NA  | NA  | NA  | NA  | NA  | NA | NA | NA  | NA  | NA  | NA  | 7.4  | 5.4 | NA  | NA  | NA  | NA  | NA  | NA | NA  | NA  | NA  | NA  | NA  | NA  | NA  | NA  | NA  | NA  | NA  | NA | NA  | NA  | NA | NA | NA  | NA  | NA  | NA  | NA  | NA  | NA  | NA | NA  | NA  | NA  | NA  | NA | NA | NA  | NA | NA  | NA | NA | NA | NA | NA | NA | NA | Back | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA |
+| 19 | 107       | 143      | 1769258688 | 1        | 1          | 8   | 18  | 1       | 26.2 | 56.3 | 2016-08-14T14:08:43.828 | 2016-08-14T14:08:46 | 1471180125999 | 52775      | NA      | NA     | NA | NA | NA  | NA  | NA  | NA  | NA  | NA  | NA  | NA  | NA | NA  | NA  | NA | 11.5 | 44.9 | NA  | NA  | NA  | NA  | NA | NA  | NA  | NA  | NA  | NA  | NA  | NA  | NA  | NA | NA  | NA  | NA  | NA  | NA  | NA | NA  | NA  | NA  | NA  | NA  | NA | NA  | NA  | NA  | NA  | NA  | NA  | NA | NA | NA  | NA  | NA  | NA  | 17.3 | 3.6 | NA  | NA  | NA  | NA  | NA  | NA | NA  | NA  | NA  | NA  | NA  | NA  | NA  | NA  | NA  | NA  | NA  | NA | NA  | NA  | NA | NA | NA  | NA  | NA  | NA  | NA  | NA  | NA  | NA | NA  | NA  | NA  | NA  | NA | NA | NA  | NA | NA  | NA | NA | NA | NA | NA | NA | NA | Back | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA |
+| 20 | 107       | 148      | 39903646   | 1        | 1          | 11  | 51  | 1       | 38.7 | 58.5 | 2016-08-14T14:12:17.502 | 2016-08-14T14:12:18 | 1471180338359 | 210460     | NA      | NA     | NA | NA | NA  | NA  | NA  | NA  | NA  | NA  | NA  | NA  | NA | NA  | NA  | NA | 31.6 | 68.8 | NA  | NA  | NA  | NA  | NA | NA  | NA  | NA  | NA  | NA  | NA  | NA  | NA  | NA | NA  | NA  | NA  | NA  | NA  | NA | NA  | NA  | NA  | NA  | NA  | NA | NA  | NA  | NA  | NA  | NA  | NA  | NA | NA | NA  | NA  | NA  | NA  | 10.2 | 2.4 | NA  | NA  | NA  | NA  | NA  | NA | NA  | NA  | NA  | NA  | NA  | NA  | NA  | NA  | NA  | NA  | NA  | NA | NA  | NA  | NA | NA | NA  | NA  | NA  | NA  | NA  | NA  | NA  | NA | NA  | NA  | NA  | NA  | NA | NA | NA  | NA | NA  | NA | NA | NA | NA | NA | NA | NA | Back | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA |
 
 #### Feature Analysis and Selection
 
@@ -624,7 +487,7 @@ na_count[na_count>0]
     ## player_id      q212      q213       q56 next_team    next_x    next_y 
     ##        46       789       789       196         1         1         1
 
-These are the amounts of event entries with NA values for a given
+These are the numbers of event entries with NA values for a given
 feature, out of the 1687 events in the sample game data. Further data
 exploration results in the following observations and decisions.
 
@@ -643,7 +506,8 @@ exploration results in the following observations and decisions.
 
   - After removing all the event entries with NA, the comprehensive
     challenge data(stored (**All\_Games\_Events\_NoNA**) dwindled from ~
-    335,000 events to ~ 200,000 events.
+    335,000 events to ~ 200,000 events. A sample of the final table is
+    shown.
 
 <!-- end list -->
 
@@ -651,25 +515,12 @@ exploration results in the following observations and decisions.
 Events_NoNA <- na.omit(Events)
 ```
 
-``` r
-# sample of final table
-Events_NoNA[20:25,]
-```
-
-    ##    event_id team_id min sec player_id type_id outcome    x    y q212 q213
-    ## 40       24     143   1  24     59963       1       1 35.7 38.5 14.1  1.9
-    ## 41       25     143   1  27     52775       1       1 33.9 59.3 28.1  0.5
-    ## 44       27     143   1  34     52775       1       1 33.9 77.0 26.0  4.8
-    ## 45       28     143   1  38     44488       1       1 37.6 36.7  7.8  6.0
-    ## 46       29     143   1  40    169007       1       0 45.3 29.5  8.6  0.2
-    ## 49       16     148   1  44    210460       1       1 53.3 59.1 33.7  0.7
-    ##       q56 next_team next_x next_y
-    ## 40   Back         1   33.9   59.3
-    ## 41   Left         0   46.5   18.5
-    ## 44   Back         1   37.6   36.7
-    ## 45   Back         1   45.3   29.5
-    ## 46 Center         0   46.7   66.9
-    ## 49   Left         1   77.8   93.0
+|    | event\_id | team\_id | min | sec | player\_id | type\_id | outcome |    x |    y | q212 | q213 | q56  | next\_team | next\_x | next\_y |
+| -- | --------: | :------- | --: | --: | :--------- | :------- | :------ | ---: | ---: | ---: | ---: | :--- | :--------- | ------: | ------: |
+| 40 |        24 | 143      |   1 |  24 | 59963      | 1        | 1       | 35.7 | 38.5 | 14.1 |  1.9 | Back | 1          |    33.9 |    59.3 |
+| 41 |        25 | 143      |   1 |  27 | 52775      | 1        | 1       | 33.9 | 59.3 | 28.1 |  0.5 | Left | 0          |    46.5 |    18.5 |
+| 44 |        27 | 143      |   1 |  34 | 52775      | 1        | 1       | 33.9 | 77.0 | 26.0 |  4.8 | Back | 1          |    37.6 |    36.7 |
+| 45 |        28 | 143      |   1 |  38 | 44488      | 1        | 1       | 37.6 | 36.7 |  7.8 |  6.0 | Back | 1          |    45.3 |    29.5 |
 
 ### Modeling
 
