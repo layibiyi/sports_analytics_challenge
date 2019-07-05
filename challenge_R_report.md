@@ -725,7 +725,6 @@ properly. The agenda for the second report include:
     area of sequenced predictions of which there are different
     approaches. The possible limitation to the approaches is the speed
     of obtaining a prediction.
-    
       - Sequenced predictions based on sequential models that consider
         top x% prediction using class probabilities. Subsequent models
         predict within certain constraints. Models can also be combined
@@ -796,7 +795,7 @@ properly. The agenda for the second report include:
     permissions) that would have been useful and provided better
     differentiation for all three deliverables.
 
-  - **Model interpretability and analysis **: The models developed in
+  - **Model interpretability and analysis**: The models developed in
     this report would be analyzed further to understand better their
     assumptions and interpretations. This would educate about relevant
     steps to improve their performance and compare modeling options.
