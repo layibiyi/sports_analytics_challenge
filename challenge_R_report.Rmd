@@ -3,9 +3,10 @@ title: "Agorize Sports Analytics Challenge (R)"
 author: "Sulaiman Olabiyi"
 date: "May 2019"
 output:
+  rmarkdown::github_document: default
+  pdf_document: default
   html_document: 
     df_print: paged
-  pdf_document: default
 ---
 
 This report documents the approach for my original submission. There will be a supplementary report that documents important changes to this first iteration and alternate approaches to the problem.
