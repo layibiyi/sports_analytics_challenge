@@ -14,7 +14,7 @@
 * **Results**: [Top 11 selection](https://www.agorize.com/en/challenges/xpsg/pages/finale) out of over 3000 submissions. Round 2 interview with analysts from Paris Saint-Germain and École Polytechnique. Finished [8th](https://www.agorize.com/en/challenges/xpsg/pages/finale) and received Paris Saint-Germain merchandise
 
 * **Files uploaded or planned**: 
-  - 1st report about original submission ([R](https://layibiyi.github.io/sports_analytics_challenge/challenge_R_report.md) and Python versions). 
+  - 1st report about original submission ([R](https://github.com/layibiyi/sports_analytics_challenge/blob/master/challenge_R_report.md) and Python versions). 
   - 2nd report detailing alternate approaches and improvements to original submission (R and Python versions).
   - [main_psgx.R](https://github.com/layibiyi/sports_analytics_challenge/blob/master/main_psgx.R) contains final code submitted. This file loads trained models and includes function that outputs challenge deliverables in a csv file.
     
