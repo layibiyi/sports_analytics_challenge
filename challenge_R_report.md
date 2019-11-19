@@ -1,6 +1,6 @@
 Agorize Sports Analytics Challenge (R)
 ================
-Sulaiman Olabiyi
+S. Olabiyi
 May 2019
 
 This report documents the approach for my original submission. There
